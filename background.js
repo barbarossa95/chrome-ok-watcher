@@ -58,7 +58,7 @@ function getUpdates() {
 
 function onInstalled() {
     initStorage();
-    setCommentatorIcon();
+    setExtensionIcon();
 }
 
 function onStartup() {
@@ -72,7 +72,7 @@ function onStartup() {
         } else {
             initStorage();
         }
-        setCommentatorIcon();
+        setExtensionIcon();
         getUpdates();
     });
 };

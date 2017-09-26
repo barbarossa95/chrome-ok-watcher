@@ -1,28 +1,28 @@
-function loadCommentatorInfo() {
+function loadExtensionInfo() {
     $(document).ready(function() {
         var targets = localStorage.targets;
         $('#targets').val(targets || "");
 
-        var commentatorSettings = JSON.parse(localStorage.commentatorSettings);
-        $('#botToken').val(commentatorSettings['botToken'] || "");
-        $('#tgUserId').val(commentatorSettings['tgUserId'] || "");
-        $('#interval').val(commentatorSettings['interval'] || "");
-        $('#messageTemplate').val(commentatorSettings['messageTemplate'] || "");
+        var watcherSettings = JSON.parse(localStorage.watcherSettings);
+        $('#botToken').val(watcherSettings['botToken'] || "");
+        $('#tgUserId').val(watcherSettings['tgUserId'] || "");
+        $('#interval').val(watcherSettings['interval'] || "");
+        $('#messageTemplate').val(watcherSettings['messageTemplate'] || "");
     });
 }
 
 function save() {
     localStorage.targets = $('#targets').val() || "";
-    
-    var commentatorSettings = JSON.parse(localStorage.commentatorSettings);
-    commentatorSettings['botToken'] = $('#botToken').val() || "";
-    commentatorSettings['tgUserId'] = $('#tgUserId').val() || "";
-    commentatorSettings['interval'] = $('#interval').val() || "";
-    commentatorSettings['messageTemplate'] = $('#messageTemplate').val() || "";
-    localStorage.commentatorSettings = JSON.stringify(commentatorSettings);
+
+    var watcherSettings = JSON.parse(localStorage.watcherSettings);
+    watcherSettings['botToken'] = $('#botToken').val() || "";
+    watcherSettings['tgUserId'] = $('#tgUserId').val() || "";
+    watcherSettings['interval'] = $('#interval').val() || "";
+    watcherSettings['messageTemplate'] = $('#messageTemplate').val() || "";
+    localStorage.watcherSettings = JSON.stringify(watcherSettings);
     // sync settings to google cloud
     chrome.storage.sync.set({
-        'commentatorSettings'   : localStorage.settings,
+        'watcherSettings'       : localStorage.settings,
         'targets'               : localStorage.targets,
         'posts'                 : localStorage.posts
     }, function() {});
@@ -30,8 +30,8 @@ function save() {
 
 
 document.addEventListener('DOMContentLoaded', function () {
-    var isActive = getCommentatorSettings('isActive');
-    
+    var isActive = getExtensionSettings('isActive');
+
     $btnSwitch = $('#btn-switch');
 
     $btnSwitch.val(isActive ? "Stop" : "Start");
@@ -47,21 +47,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
     $('#btn-save').click(function() {
         save();
-        notify("Commentator", "The configuration has been saved!");
+        notify("Ok-watcher", "The configuration has been saved!");
     });
 
     $('#btn-switch').click(function() {
-        var isActive = getCommentatorSettings('isActive');
-        editCommentatorSettings('isActive', !isActive);
-        setCommentatorIcon();
+        var isActive = getExtensionSettings('isActive');
+        editExtensionSettings('isActive', !isActive);
+        setExtensionIcon();
         $btnSwitch.html(isActive ? "Start" : "Stop");
         if (isActive) {
-            notify("Commentator", "Commentator stoped.");
-            resetCounter();            
+            notify("Ok-watcher", "Ok-watcher stoped.");
+            resetCounter();
         } else {
-            notify("Commentator", "Commentator started.");   
+            notify("Ok-watcher", "Ok-watcher started.");
         }
     });
 });
 
-loadCommentatorInfo();
+loadExtensionInfo();
