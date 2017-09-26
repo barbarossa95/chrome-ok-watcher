@@ -1,0 +1,144 @@
+﻿<meta name="google" value="notranslate" />
+<html>
+<head>
+    <title>Commentator settings</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/chrome-bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/options.css" />
+    <script type="text/javascript" src="javascripts/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="javascripts/options-ui.js"></script>
+    <script type="text/javascript" src="javascripts/options.js"></script>
+    <script type="text/javascript" src="lib/helpers.js"></script>
+</head>
+<body class="chrome-bootstrap">
+    <div class="frame">
+        <div class="navigation">
+            <h1>
+                <a style="font-size:18px">Options</a>
+            </h1>
+
+            <ul class="menu">
+                <li class="selected">
+                    <a href="#general">General</a>
+                </li>
+            </ul>
+            <ul class="menu">
+                <li>
+                    <a href="#help">Help</a>
+                </li>
+                <li>
+                    <a href="#about">About</a>
+                </li>
+            </ul>
+        </div>
+        <div class="mainview view">
+            <div id="general" class="selected">
+                <header><h1>General</h1></header>
+                <div class="content">
+                    <h3>Commentator settings</h3>
+                    <section>
+                        <p class="field_label">List of target posts:</p>
+                        <div class="section">
+                            <textarea id='targets'
+                                rows="10"
+                                cols="90"
+                                placeholder="url1
+url2
+url3"></textarea>
+                        </div>
+                    </section>
+
+                    <section>
+                        <p class="field_label">List of target posts:</p>
+                        <div class="section">
+                            <input type="text" name="link" id='targets'
+                                rows="10"
+                                cols="90"
+                                placeholder="link"></textarea>
+                        </div>
+                    </section>
+
+                    <section>
+                        <span class="field_label" style="width: 100px;" >Interval</span>
+                        <input id='interval' type="number" min='1' max='60' value="1">
+                        <span class="field_label" style="width: 100px;" >minutes</span>
+                    </section>
+
+                    <section>
+                        <span class="field_label" style="width: 100px;" >Telegram bot token Id</span>
+                        <input id='botToken' type="text" placeholder="123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11">
+                    </section>
+
+                    <section>
+                        <span class="field_label" style="width: 100px;" >Telegramm username</span>
+                        <input id='tgUserId' type="text" placeholder="user id">
+                    </section>
+
+                    <section>
+                        <p class="field_label">Bot message template</p>
+                        <div class="section">
+                            <textarea id='messageTemplate'
+                                rows="10"
+                                cols="90"
+                                placeholder="Post: {{URL}} Сообщение: {{MESSAGE}}"></textarea>
+                        </div>
+                    </section>
+                    <section>
+                        <button id='btn-switch'>Start</button>
+                        <button id='btn-save'>Save settings</button>
+                    </section>
+                </div>
+            </div>
+            <div id="help">
+                <header><h1>Help</h1></header>
+                <div class="content">
+                    <h3>How to use</h3>
+                    <p>Todo</p>
+                </div>
+            </div>
+            <div id="about">
+                <header><h1>About</h1></header>
+                <div class="content">
+                <h3>Chrome Web Store</h3>
+                <section class="section">
+                    <a href="#">Commentator extension</a>
+                </section>
+                <h3>Homepage</h3>
+                <section>
+                    <div class="section">
+                        <img src="images/GitHub-Mark-32px.png"></img>
+                        <a href="https://github.com/barbarossa95/chrome-comentator" target="_blank">https://github.com/barbarossa95/chrome-comentator</a>
+                    </div>
+                </section>
+
+                <h3>Open Source</h3>
+                <section>
+                    <div>
+                        <table class="simpletable">
+                            <thead>
+                                <tr>
+                                    <th>Library</th>
+                                    <th>License</th>
+                                </tr>
+                            </thead>
+                            <tbody style="display: table-row-group;">
+                                <tr>
+                                    <td><a href="https://jquery.org" target="_blank">jQuery</a></td>
+                                    <td><a href="https://github.com/jquery/jquery/blob/master/LICENSE.txt" target="_blank">LICENSE.txt</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://github.com/roykolak/chrome-bootstrap" target="_blank">chrome-bootstrap</a></td>
+                                    <td><a href="http://opensource.org/licenses/mit-license.php" target="_blank">MIT</a></td>
+                                </tr>
+                                <tr></tr>
+                                <tr></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

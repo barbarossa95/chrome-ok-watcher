@@ -1,0 +1,27 @@
+{
+    "manifest_version": 2,
+    "name": "Ok-watcher",
+    "version": "0.1.0",
+    "description": "Comments watcher chrome extension",
+
+    "background": {
+        "scripts": [
+            "lib/helpers.js",
+            "background.js"
+        ],
+        "persistent": true
+    },
+    "permissions": [
+        "background",
+        "notifications",
+        "unlimitedStorage",
+        "storage",
+        "<all_urls>",
+        "tabs"
+    ],
+    "options_page": "options.html",
+    "browser_action": {
+        "default_icon": "images/comment-off.png",
+        "default_title": "Commentator extension"
+    }
+}
