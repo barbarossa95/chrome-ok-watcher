@@ -84,5 +84,4 @@ chrome.browserAction.onClicked.addListener(function(tab) {
     gotoPage('options.html');
 });
 
-
 onStartup();
