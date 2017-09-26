@@ -22,6 +22,6 @@
     "options_page": "options.html",
     "browser_action": {
         "default_icon": "images/comment-off.png",
-        "default_title": "Commentator extension"
+        "default_title": "Ok-watcher extension"
     }
 }
