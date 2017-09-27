@@ -7,6 +7,7 @@ function loadExtensionInfo() {
         $('#botToken').val(watcherSettings['botToken'] || "");
         $('#tgUserId').val(watcherSettings['tgUserId'] || "");
         $('#interval').val(watcherSettings['interval'] || "");
+        $('#link').val(watcherSettings['link'] || "");
         $('#messageTemplate').val(watcherSettings['messageTemplate'] || "");
     });
 }
@@ -18,6 +19,7 @@ function save() {
     watcherSettings['botToken'] = $('#botToken').val() || "";
     watcherSettings['tgUserId'] = $('#tgUserId').val() || "";
     watcherSettings['interval'] = $('#interval').val() || "";
+    watcherSettings['link']     = $('#link').val() || "";
     watcherSettings['messageTemplate'] = $('#messageTemplate').val() || "";
     localStorage.watcherSettings = JSON.stringify(watcherSettings);
     // sync settings to google cloud
