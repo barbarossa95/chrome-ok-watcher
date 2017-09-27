@@ -27,11 +27,9 @@ function getUpdates() {
         for (var i = targets.length - 1; i >= 0; i--) {
             var url = targets[i];
             var site = '';
-            if (url.search('(?:(?:http|https):\/\/)?(?:www.)?facebook.com\/(?:(?:\w)*#!\/)?(?:pages\/)?(?:[?\w\-]*\/)?(?:profile.php\?id=(?=\d.*))?([\w\-]*)?') !== -1) {
-                site = 'facebook';
-            }
-            if (url.search('(?:(?:http|https):\/\/)?(?:www.)?(?:instagram.com|instagr.am)\/([A-Za-z0-9-_]+)') !== -1) {
-                site = 'instagram';
+
+            if (url.search('(?:(?:http|https):\/\/)?(?:www.)?ok.ru\/group\/(?:[\w]*\/)topic(?:\/[\d]*)') == -1) {
+                continue;
             }
             post = getPostFromStorage(url);
             if (!post) {
