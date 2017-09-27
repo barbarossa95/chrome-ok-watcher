@@ -3,7 +3,7 @@ function initStorage() {
             'isActive'          : false,
             'botToken'          : null,
             'tgUserId'          : null,
-            'link'              : null
+            'link'              : null,
             'interval'          : 1,
             'messageTemplate'   : 'Post: {{URL}} Message: {{MESSAGE}}'
     };
@@ -28,23 +28,18 @@ function getUpdates() {
             var url = targets[i];
             var site = '';
 
-            if (url.search('(?:(?:http|https):\/\/)?(?:www.)?ok.ru\/group\/(?:[\w]*\/)topic(?:\/[\d]*)') == -1) {
+            if (url.search(/(?:(?:http|https):\/\/)?(?:www.)?ok.ru\/(group\/)?(?:[\w]*\/)topic(?:\/[\d]*)/g) == -1) {
                 continue;
             }
             post = getPostFromStorage(url);
             if (!post) {
                 post = {
-                    id: 0,
                     url: url,
-                    comments: null,
-                    syncDate: null
-                }
+                    isNotified: false,
+                    hasLink: false
+                };
             }
-            switch (site) {
-                case 'facebook': FacebookParser(post); break;
-                case 'instagram': InstagramParser(post); break;
-                default: continue;
-            }
+            OkParser(post);
         }
         setTimeout(function() {
             notifyByTelegram(targets);
