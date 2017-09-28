@@ -1,0 +1,12 @@
+curl 'https://www.ok.ru/avtostrada/topic/64688325536570' -o tmp.htm --data 'st.cmd=altGroupForum&st.groupId=56710532300858&cmd=MediaTopicLayerBody&gwt.requested=b1badc19&st.mt.id=64688325536570&st.mt.ot=GROUP_THEME'
+
+
+var url = 'https://www.ok.ru/avtostrada/topic/64688325536570';
+
+var data = {};
+data['st.cmd']=altGroupForum
+data['st.groupId']=56710532300858
+data['cmd']=MediaTopicLayerBody
+data['gwt.requested']=b1badc19
+data['st.mt.id']=64688325536570
+data['st.mt.ot']=GROUP_THEME'
