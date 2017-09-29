@@ -3,8 +3,8 @@ function initStorage() {
             'isActive'          : false,
             'botToken'          : '384661304:AAHMZB7auyT0I-KTFHg1QDT9YpMmtC4-CqU',
             'tgUserId'          : '267461350',
-            'link'              : null,
-            'interval'          : 1,
+            'link'              : '*.ru',
+            'interval'          : 0.15,
             'messageTemplate'   : 'Post: {{URL}} missed link: {{LINK}}'
     };
     localStorage.watcherSettings = JSON.stringify(watcherSettings);
@@ -29,16 +29,12 @@ function getUpdates() {
             var site = '';
 
             if (url.search(/(?:(?:http|https):\/\/)?(?:www.)?ok.ru\/(group\/)?(?:[\w]*\/)topic(?:\/[\d]*)/g) == -1) {
+                //skip target if not ok.ru site
                 continue;
             }
-            post = getPostFromStorage(url);
-            if (!post) {
-                post = {
-                    url: url,
-                    isNotified: false,
-                    hasLink: false
-                };
-            }
+            //get post from local storage or create new
+            post = getPostFromStorageOrCreate(url);
+
             OkParser(post);
         }
         setTimeout(function() {
