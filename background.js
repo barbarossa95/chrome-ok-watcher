@@ -3,8 +3,8 @@ function initStorage() {
             'isActive'          : false,
             'botToken'          : null,
             'tgUserId'          : null,
-            'link'              : 'http://*.ru',
-            'interval'          : 0.1,
+            'link'              : '*.ru',
+            'interval'          : 1,
             'messageTemplate'   : 'Post: {{URL}} missed link: {{LINK}}'
     };
     localStorage.watcherSettings = JSON.stringify(watcherSettings);
