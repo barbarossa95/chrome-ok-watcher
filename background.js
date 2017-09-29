@@ -1,11 +1,11 @@
 function initStorage() {
     var watcherSettings = {
             'isActive'          : false,
-            'botToken'          : null,
-            'tgUserId'          : null,
+            'botToken'          : '384661304:AAHMZB7auyT0I-KTFHg1QDT9YpMmtC4-CqU',
+            'tgUserId'          : '267461350',
             'link'              : null,
             'interval'          : 1,
-            'messageTemplate'   : 'Post: {{URL}} Message: {{MESSAGE}}'
+            'messageTemplate'   : 'Post: {{URL}} missed link: {{LINK}}'
     };
     localStorage.watcherSettings = JSON.stringify(watcherSettings);
     localStorage.targets = '';
