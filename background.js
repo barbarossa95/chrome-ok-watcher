@@ -13,8 +13,8 @@ function initStorage() {
     localStorage.requestCounter = 0;
     chrome.storage.sync.set({
         'watcherSettings'   : localStorage.watcherSettings,
-        'targets'               : localStorage.targets,
-        'posts'                 : localStorage.posts
+        'targets'           : localStorage.targets,
+        'posts'             : localStorage.posts
     }, function() {});
 }
 
